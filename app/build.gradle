@@ -1,0 +1,143 @@
+plugins {
+    id 'com.android.application'
+}
+
+//编译后apk名字携带信息(commitId + date)
+def gitSha = 'git rev-parse --short HEAD'.execute([], project.rootDir).text.trim()
+if (gitSha.isEmpty()){
+    gitSha = 'git rev-parse --short HEAD'.execute().text.trim()
+}
+def buildDate = new Date().format("yyyy-MM-dd HH:mm", TimeZone.getTimeZone("GMT+08:00"))
+
+android {
+    namespace 'me.msile.app.androidapp'
+    compileSdk rootProject.compileSdkVersion
+
+    defaultConfig {
+        applicationId "me.msile.app.androidapp"
+        minSdk rootProject.minSdkVersion
+        targetSdk rootProject.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        release {
+            keyAlias 'android'
+            keyPassword 'android'
+            storeFile file('keystore')
+            storePassword 'android'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "androidapp_v${variant.versionName}_${variant.buildType.name}_${gitSha}.apk"
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
+
+dependencies {
+    //google官方库
+    implementation "androidx.appcompat:appcompat:${rootProject.appcompatVesion}"
+    implementation "androidx.constraintlayout:constraintlayout:${rootProject.constraintLayVersion}"
+    implementation "com.google.android.material:material:${rootProject.materialVersion}"
+    implementation "androidx.recyclerview:recyclerview:${rootProject.recyclerViewVersion}"
+
+    //rx系列
+    implementation "io.reactivex.rxjava3:rxjava:${rootProject.rxjavaVersion}"
+    implementation "io.reactivex.rxjava3:rxandroid:${rootProject.rxandroidVerison}"
+
+    //rx生命周期解绑库
+    implementation "com.uber.autodispose2:autodispose:${rootProject.autodisposeVersion}"
+    implementation "com.uber.autodispose2:autodispose-android:${rootProject.autodisposeVersion}"
+    implementation "com.uber.autodispose2:autodispose-androidx-lifecycle:${rootProject.autodisposeVersion}"
+
+    //网络请求库
+    implementation "com.squareup.okhttp3:okhttp:${rootProject.okhttpVerison}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${rootProject.okhttpVerison}"
+    implementation "com.squareup.okhttp3:okhttp-tls:${rootProject.okhttpVerison}"
+
+    //网络框架
+    implementation "com.squareup.retrofit2:retrofit:${rootProject.retrofitVersion}"
+    implementation "com.squareup.retrofit2:adapter-rxjava3:${rootProject.retrofitVersion}"
+    implementation "com.squareup.retrofit2:converter-scalars:${rootProject.retrofitVersion}"
+    implementation "com.squareup.retrofit2:converter-jackson:${rootProject.retrofitVersion}"
+
+    //图片加载库
+    implementation "com.github.bumptech.glide:glide:${rootProject.glideVerison}"
+    implementation "com.github.bumptech.glide:okhttp3-integration:${rootProject.glideVerison}"
+    annotationProcessor "com.github.bumptech.glide:compiler:${rootProject.glideVerison}"
+
+    //事件总线
+    implementation "org.greenrobot:eventbus:${rootProject.eventBusVersion}"
+
+    //权限申请库
+    implementation "com.guolindev.permissionx:permissionx:${rootProject.permissionXVersion}"
+
+    //key/value高性能存储
+    implementation "com.tencent:mmkv-static:${rootProject.mmkvVersion}"
+
+    //图片压缩库
+    implementation "top.zibin:Luban:${rootProject.lubanVersion}"
+
+    //x5WebView
+    implementation "com.tencent.tbs:tbssdk:${rootProject.x5webVerison}"
+
+    //汉字转拼音
+    implementation "com.github.promeg:tinypinyin:${rootProject.tinypinyinVerison}"
+    implementation "com.github.promeg:tinypinyin-lexicons-android-cncity:${rootProject.tinypinyinVerison}"
+
+    //二维码扫描
+    implementation "com.github.bingoogolapple.BGAQRCode-Android:zxing:${rootProject.qrcodeVersion}"
+
+    //lottie动画库
+    implementation "com.airbnb.android:lottie:${rootProject.lottieVersion}"
+
+    //exoplayer库
+    implementation "com.google.android.exoplayer:exoplayer:${rootProject.exoplayerVersion}"
+
+    //下拉刷新
+    implementation "io.github.scwang90:refresh-layout-kernel:${rootProject.smartRefreshVersion}"
+    implementation "io.github.scwang90:refresh-header-two-level:${rootProject.smartRefreshVersion}"
+
+    //调试相关
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}
