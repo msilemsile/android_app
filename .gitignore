@@ -1,7 +1,3 @@
-/app/release
-/app/debug
-*.aab
-*.apk
 *.iml
 .gradle
 /local.properties
