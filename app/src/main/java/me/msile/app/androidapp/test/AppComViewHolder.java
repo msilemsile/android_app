@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 
+import java.util.Arrays;
+
 import me.msile.app.androidapp.R;
 import me.msile.app.androidapp.common.permissions.PermissionHelper;
 import me.msile.app.androidapp.common.permissions.callback.PermissionCallback;
@@ -121,6 +123,17 @@ public class AppComViewHolder extends CommonRecyclerViewHolder<AppComBean> {
                                     AppAlertDialog.build()
                                             .setTitleText("文件路径")
                                             .setContentText(uri.toString())
+                                            .setConfirmText("确定")
+                                            .show(mContext);
+                                }
+                            }
+
+                            @Override
+                            public void onPickFile(@Nullable Uri[] uri) {
+                                if (uri != null) {
+                                    AppAlertDialog.build()
+                                            .setTitleText("文件路径")
+                                            .setContentText(Arrays.toString(uri))
                                             .setConfirmText("确定")
                                             .show(mContext);
                                 }
