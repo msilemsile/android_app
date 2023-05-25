@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import me.msile.app.androidapp.common.R;
+import me.msile.app.androidapp.R;
 import me.msile.app.androidapp.common.ui.adapter.CommonRecyclerAdapter;
 import me.msile.app.androidapp.common.ui.fragment.BaseRecyclerFragment;
 

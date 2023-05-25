@@ -7,7 +7,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import java.util.ArrayList;
 import java.util.List;
 
-import me.msile.app.androidapp.common.R;
+import me.msile.app.androidapp.R;
 import me.msile.app.androidapp.common.ui.adapter.CommonRecyclerAdapter;
 import me.msile.app.androidapp.common.ui.dialog.BaseRecyclerDialog;
 import me.msile.app.androidapp.common.ui.widget.slidetablayout.AppSlideTabLayout;

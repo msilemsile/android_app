@@ -2,7 +2,6 @@ package me.msile.app.androidapp.test;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.text.Html;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -13,8 +12,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 
 import java.util.Arrays;
+import java.util.Random;
 
-import me.msile.app.androidapp.common.R;
+import me.msile.app.androidapp.R;
 import me.msile.app.androidapp.common.permissions.PermissionHelper;
 import me.msile.app.androidapp.common.permissions.callback.PermissionCallback;
 import me.msile.app.androidapp.common.permissions.request.CameraPermissionRequest;
@@ -147,7 +147,12 @@ public class AppComViewHolder extends CommonRecyclerViewHolder<AppComBean> {
                         .show(mContext);
                 break;
             case AppComBean.COM_TYPE_PLAYER:
-                PlayerManager.goToMediaPlay(mContext, videoUrl);
+                boolean changeExoplayer = new Random().nextInt(10) % 2 == 0;
+                if (changeExoplayer) {
+                    PlayerManager.goToExoPlay(mContext, videoUrl, "exoPlayer");
+                } else {
+                    PlayerManager.goToMediaPlay(mContext, videoUrl, "mediaPlayer");
+                }
                 break;
             case AppComBean.COM_TYPE_PERMISSION:
                 PermissionHelper.with((FragmentActivity) mContext)

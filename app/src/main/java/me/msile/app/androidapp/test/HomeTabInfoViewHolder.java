@@ -1,11 +1,12 @@
 package me.msile.app.androidapp.test;
 
+import android.graphics.Color;
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import me.msile.app.androidapp.common.R;
+import me.msile.app.androidapp.R;
 import me.msile.app.androidapp.common.ui.adapter.holder.CommonRecyclerViewHolder;
 
 /**
@@ -33,8 +34,8 @@ public class HomeTabInfoViewHolder extends CommonRecyclerViewHolder<HomeTabInfo>
             String tabName = String.valueOf(extraInfo);
             tvTab.setText(tabName);
         }
-        int selBgColor = mContext.getResources().getColor(R.color.color_0085D0);
-        int unSelBgColor = mContext.getResources().getColor(R.color.white);
+        int selBgColor = Color.parseColor("#0085D0");
+        int unSelBgColor = Color.WHITE;
 
         if (data.isSelect()) {
             tvTab.setBackgroundColor(selBgColor);
