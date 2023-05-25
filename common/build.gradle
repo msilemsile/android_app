@@ -1,0 +1,107 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    namespace 'me.msile.app.androidapp.common'
+    compileSdk rootProject.compileSdkVersion
+
+    defaultConfig {
+        minSdk rootProject.minSdkVersion
+        targetSdk rootProject.targetSdkVersion
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            consumerProguardFiles "consumer-rules.pro"
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
+
+dependencies {
+    //google官方库
+    api "androidx.appcompat:appcompat:${rootProject.appcompatVesion}"
+    api "androidx.constraintlayout:constraintlayout:${rootProject.constraintLayVersion}"
+    api "com.google.android.material:material:${rootProject.materialVersion}"
+    api "androidx.recyclerview:recyclerview:${rootProject.recyclerViewVersion}"
+
+    //rx系列
+    api "io.reactivex.rxjava3:rxjava:${rootProject.rxjavaVersion}"
+    api "io.reactivex.rxjava3:rxandroid:${rootProject.rxandroidVerison}"
+
+    //rx生命周期解绑库
+    api "com.uber.autodispose2:autodispose:${rootProject.autodisposeVersion}"
+    api "com.uber.autodispose2:autodispose-android:${rootProject.autodisposeVersion}"
+    api "com.uber.autodispose2:autodispose-androidx-lifecycle:${rootProject.autodisposeVersion}"
+
+    //网络请求库
+    api "com.squareup.okhttp3:okhttp:${rootProject.okhttpVerison}"
+    api "com.squareup.okhttp3:logging-interceptor:${rootProject.okhttpVerison}"
+    api "com.squareup.okhttp3:okhttp-tls:${rootProject.okhttpVerison}"
+
+    //网络框架
+    api "com.squareup.retrofit2:retrofit:${rootProject.retrofitVersion}"
+    api "com.squareup.retrofit2:adapter-rxjava3:${rootProject.retrofitVersion}"
+    api "com.squareup.retrofit2:converter-scalars:${rootProject.retrofitVersion}"
+    api "com.squareup.retrofit2:converter-jackson:${rootProject.retrofitVersion}"
+
+    //图片加载库
+    api "com.github.bumptech.glide:glide:${rootProject.glideVerison}"
+    api "com.github.bumptech.glide:okhttp3-integration:${rootProject.glideVerison}"
+    annotationProcessor "com.github.bumptech.glide:compiler:${rootProject.glideVerison}"
+
+    //事件总线
+    api "org.greenrobot:eventbus:${rootProject.eventBusVersion}"
+
+    //权限申请库
+    api "com.guolindev.permissionx:permissionx:${rootProject.permissionXVersion}"
+
+    //key/value高性能存储
+    api "com.tencent:mmkv-static:${rootProject.mmkvVersion}"
+
+    //图片压缩库
+    api "top.zibin:Luban:${rootProject.lubanVersion}"
+
+    //x5WebView
+    api "com.tencent.tbs:tbssdk:${rootProject.x5webVerison}"
+
+    //汉字转拼音
+    api "com.github.promeg:tinypinyin:${rootProject.tinypinyinVerison}"
+    api "com.github.promeg:tinypinyin-lexicons-android-cncity:${rootProject.tinypinyinVerison}"
+
+    //二维码扫描
+    api "com.github.bingoogolapple.BGAQRCode-Android:zxing:${rootProject.qrcodeVersion}"
+
+    //lottie动画库
+    api "com.airbnb.android:lottie:${rootProject.lottieVersion}"
+
+    //exoplayer库
+    api "com.google.android.exoplayer:exoplayer:${rootProject.exoplayerVersion}"
+
+    //下拉刷新
+    api "io.github.scwang90:refresh-layout-kernel:${rootProject.smartRefreshVersion}"
+    api "io.github.scwang90:refresh-header-two-level:${rootProject.smartRefreshVersion}"
+
+    //调试相关
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}

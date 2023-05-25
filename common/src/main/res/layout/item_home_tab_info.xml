@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_tab"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textColor="@color/color_0085D0"
+        android:textSize="@dimen/sp_14"
+        android:background="@color/white"
+        tools:text="Tab" />
+
+    <me.msile.app.androidapp.common.ui.widget.shapelayout.ShapeView
+        android:id="@+id/v_tips"
+        android:layout_width="@dimen/dp_10"
+        android:layout_height="@dimen/dp_10"
+        android:layout_alignTop="@id/tv_tab"
+        android:layout_alignRight="@id/tv_tab"
+        android:layout_marginRight="-0.5dp"
+        android:visibility="gone"
+        app:circleRadiusT="@dimen/dp_5"
+        app:solidColorT="@color/color_FE3F53"
+        tools:visibility="visible" />
+</RelativeLayout>

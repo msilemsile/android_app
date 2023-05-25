@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="status_bar_view" type="id" />
+    <item name="vh_data_tag" type="id" />
+    <item name="lvp_vh_pos_tag" type="id" />
+</resources>

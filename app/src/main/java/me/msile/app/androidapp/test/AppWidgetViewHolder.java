@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import me.msile.app.androidapp.R;
+import me.msile.app.androidapp.common.R;
 import me.msile.app.androidapp.common.ui.adapter.holder.CommonRecyclerViewHolder;
 
 public class AppWidgetViewHolder extends CommonRecyclerViewHolder<AppWidgetBean> {

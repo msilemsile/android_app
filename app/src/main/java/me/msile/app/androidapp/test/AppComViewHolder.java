@@ -14,7 +14,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import java.util.Arrays;
 
-import me.msile.app.androidapp.R;
+import me.msile.app.androidapp.common.R;
 import me.msile.app.androidapp.common.permissions.PermissionHelper;
 import me.msile.app.androidapp.common.permissions.callback.PermissionCallback;
 import me.msile.app.androidapp.common.permissions.request.CameraPermissionRequest;

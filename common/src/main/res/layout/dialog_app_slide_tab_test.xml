@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="3dp"
+    android:paddingRight="3dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:layout_gravity="center"
+        android:background="@drawable/shape_app_alert_dialog_bg"
+        android:orientation="vertical">
+
+        <me.msile.app.androidapp.common.ui.widget.slidetablayout.AppSlideTabLayout
+            android:id="@+id/stl_slide_tab"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:stl_equal_tab_count="3.8"
+            app:stl_tab_indicator_color="@color/color_0085CF"
+            app:stl_tab_indicator_height="3dp"
+            app:stl_tab_indicator_margin="3dp"
+            app:stl_tab_left_margin="5dp"
+            app:stl_tab_right_margin="5dp"
+            app:stl_tab_text_normal_color="@color/color_999999"
+            app:stl_tab_text_select_color="@color/color_333333"
+            app:stl_tab_text_size="13dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_e5e5e5" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp2_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"/>
+    </LinearLayout>
+</FrameLayout>

@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import me.msile.app.androidapp.R;
+import me.msile.app.androidapp.common.R;
 import me.msile.app.androidapp.common.ui.fragment.BaseRecyclerFragment;
 import me.msile.app.androidapp.common.ui.widget.common.UnderlineTextView;
 import me.msile.app.androidapp.common.web.WebManager;
