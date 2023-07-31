@@ -65,6 +65,9 @@ public class TabComFragment extends BaseRecyclerFragment {
                     case AppComBean.COM_TYPE_ROUTER:
                         dataList.add(new AppComBean(i, "路由框架", "参考类RouterManager", false));
                         break;
+                    case AppComBean.COM_TYPE_CAMERA:
+                        dataList.add(new AppComBean(i, "相机框架", "参考类CameraHelper+CameraXHelper", true));
+                        break;
                 }
             }
             CommonRecyclerAdapter recyclerAdapter = new CommonRecyclerAdapter(false);

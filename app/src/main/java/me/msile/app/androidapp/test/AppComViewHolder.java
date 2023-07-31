@@ -15,6 +15,8 @@ import java.util.Arrays;
 import java.util.Random;
 
 import me.msile.app.androidapp.R;
+import me.msile.app.androidapp.common.camera.SimpleCameraActivity;
+import me.msile.app.androidapp.common.camera.SimpleCameraXActivity;
 import me.msile.app.androidapp.common.permissions.PermissionHelper;
 import me.msile.app.androidapp.common.permissions.callback.PermissionCallback;
 import me.msile.app.androidapp.common.permissions.request.CameraPermissionRequest;
@@ -182,6 +184,14 @@ public class AppComViewHolder extends CommonRecyclerViewHolder<AppComBean> {
                         .setContentText("简单例子:schema://domain/path?data={json编码后数据}")
                         .setConfirmText("确定")
                         .show(mContext);
+                break;
+            case AppComBean.COM_TYPE_CAMERA:
+                boolean changeCameraHelper = new Random().nextInt(10) % 2 == 0;
+                if (changeCameraHelper) {
+                    SimpleCameraXActivity.goToPage(mContext);
+                } else {
+                    SimpleCameraActivity.goToPage(mContext);
+                }
                 break;
         }
     }

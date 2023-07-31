@@ -20,6 +20,8 @@ public class AppComBean {
     public static final int COM_TYPE_QR_CODE = 7;
     //路由
     public static final int COM_TYPE_ROUTER = 8;
+    //相机
+    public static final int COM_TYPE_CAMERA = 9;
 
     private int comType;
     private String comName;
