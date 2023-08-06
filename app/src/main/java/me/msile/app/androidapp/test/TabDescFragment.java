@@ -12,8 +12,10 @@ import me.msile.app.androidapp.common.web.WebManager;
 public class TabDescFragment extends BaseRecyclerFragment {
 
     private static final String URL_GITHUB = "https://www.github.com/msilemsile/android_app";
+    private static final String URL_GITEE = "https://www.gitee.com/msilemsile/android_app";
 
     private UnderlineTextView tvGithub;
+    private UnderlineTextView tvGitee;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public class TabDescFragment extends BaseRecyclerFragment {
     @Override
     protected void initViews(View rootView) {
         tvGithub = (UnderlineTextView) findViewById(R.id.tv_github);
+        tvGitee = (UnderlineTextView) findViewById(R.id.tv_gitee);
     }
 
     @Override
@@ -37,6 +40,13 @@ public class TabDescFragment extends BaseRecyclerFragment {
                 @Override
                 public void onClick(View v) {
                     Intent commonWebIntent = WebManager.INSTANCE.getCommonWebIntent(mActivity, URL_GITHUB);
+                    startActivity(commonWebIntent);
+                }
+            });
+            tvGitee.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent commonWebIntent = WebManager.INSTANCE.getCommonWebIntent(mActivity, URL_GITEE);
                     startActivity(commonWebIntent);
                 }
             });

@@ -37,6 +37,16 @@
             android:textColor="@color/color_1E90FF"
             android:textSize="14sp"
             android:textStyle="bold" />
+
+        <me.msile.app.androidapp.common.ui.widget.common.UnderlineTextView
+            android:id="@+id/tv_gitee"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            android:gravity="center"
+            android:text="Gitee项目地址"
+            android:textColor="@color/color_1E90FF"
+            android:textSize="14sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </me.msile.app.androidapp.common.ui.widget.statuslayout.StatusBarLinearLayout>
