@@ -17,6 +17,7 @@ import java.util.Random;
 import me.msile.app.androidapp.R;
 import me.msile.app.androidapp.common.camera.SimpleCameraActivity;
 import me.msile.app.androidapp.common.camera.SimpleCameraXActivity;
+import me.msile.app.androidapp.common.filepicker.FilePickerHelper;
 import me.msile.app.androidapp.common.permissions.PermissionHelper;
 import me.msile.app.androidapp.common.permissions.callback.PermissionCallback;
 import me.msile.app.androidapp.common.permissions.request.CameraPermissionRequest;
@@ -24,7 +25,7 @@ import me.msile.app.androidapp.common.player.PlayerManager;
 import me.msile.app.androidapp.common.qrcode.QrCodeActivity;
 import me.msile.app.androidapp.common.ui.adapter.holder.CommonRecyclerViewHolder;
 import me.msile.app.androidapp.common.ui.dialog.AppAlertDialog;
-import me.msile.app.androidapp.common.ui.dialog.AppPickDialog;
+import me.msile.app.androidapp.common.filepicker.SimpleFilePickerDialog;
 import me.msile.app.androidapp.common.ui.toast.AppToast;
 import me.msile.app.androidapp.common.ui.widget.shapelayout.ShapeTextView;
 import me.msile.app.androidapp.common.web.WebManager;
@@ -116,19 +117,9 @@ public class AppComViewHolder extends CommonRecyclerViewHolder<AppComBean> {
                 mContext.startActivity(commonWebIntent);
                 break;
             case AppComBean.COM_TYPE_PICKER:
-                AppPickDialog.build()
+                SimpleFilePickerDialog.build()
                         .setShowAllPickOperate(true)
-                        .setAppPickFileListener(new AppPickDialog.OnAppPickFileListener() {
-                            @Override
-                            public void onPickMediaFile(@Nullable Uri uri, String cachePickFilePath) {
-                                if (uri != null) {
-                                    AppAlertDialog.build()
-                                            .setTitleText("文件路径")
-                                            .setContentText(uri.toString())
-                                            .setConfirmText("确定")
-                                            .show(mContext);
-                                }
-                            }
+                        .setPickFileListener(new FilePickerHelper.OnPickFileListener() {
 
                             @Override
                             public void onPickFile(@Nullable Uri[] uri) {
