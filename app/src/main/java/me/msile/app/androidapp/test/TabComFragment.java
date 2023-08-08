@@ -51,7 +51,7 @@ public class TabComFragment extends BaseRecyclerFragment {
                         dataList.add(new AppComBean(i, "WebView框架", "参考类BaseWebView + BaseX5WebView", true));
                         break;
                     case AppComBean.COM_TYPE_PICKER:
-                        dataList.add(new AppComBean(i, "选择器框架", "参考类AppPickDialog", true));
+                        dataList.add(new AppComBean(i, "文件选择器框架", "参考类FilePickerHelper", true));
                         break;
                     case AppComBean.COM_TYPE_PLAYER:
                         dataList.add(new AppComBean(i, "播放器框架", "参考类MediaPlayerVideoView + ExoPlayerView", true));
