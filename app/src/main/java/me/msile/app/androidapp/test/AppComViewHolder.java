@@ -122,7 +122,7 @@ public class AppComViewHolder extends CommonRecyclerViewHolder<AppComBean> {
                         .setPickFileListener(new FilePickerHelper.OnPickFileListener() {
 
                             @Override
-                            public void onPickFile(@Nullable Uri[] uri) {
+                            public void onPickFile(@Nullable Uri[] uri, int pickType) {
                                 if (uri != null) {
                                     AppAlertDialog.build()
                                             .setTitleText("文件路径")
@@ -133,7 +133,7 @@ public class AppComViewHolder extends CommonRecyclerViewHolder<AppComBean> {
                             }
 
                             @Override
-                            public void onPickCancel() {
+                            public void onPickCancel(int pickType) {
                                 AppToast.toastMsg("pick cancel");
                             }
                         })

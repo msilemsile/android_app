@@ -6,6 +6,7 @@ import android.util.Log;
 
 import me.msile.app.androidapp.common.core.AppManager;
 import me.msile.app.androidapp.common.core.ApplicationHolder;
+import me.msile.app.androidapp.common.extend.OpenFileProxyHelper;
 import me.msile.app.androidapp.common.mmkv.MMKVInit;
 import me.msile.app.androidapp.common.provider.FileProviderHelper;
 import me.msile.app.androidapp.common.rx.RxHelper;
@@ -29,5 +30,6 @@ public class MainApplication extends Application {
         //注意隐私!!!
         WebViewCompat.fixWebViewDataDirectory(this, currentProcessName);
         X5WebViewInit.init(this);
+        OpenFileProxyHelper.INSTANCE.setMainActivityClass(MainActivity.class);
     }
 }

@@ -24,6 +24,8 @@ public class AppComBean {
     public static final int COM_TYPE_CAMERA = 9;
     //下载
     public static final int COM_TYPE_DOWNLOAD = 10;
+    //扩展功能1-获取用系统分享和打开的文件
+    public static final int COM_TYPE_EXTEND_OPEN_FILE = 11;
 
     private int comType;
     private String comName;

@@ -36,7 +36,7 @@ public class TabComFragment extends BaseRecyclerFragment {
         if (isFirstOnResume) {
             List<AppComBean> dataList = new ArrayList<>();
             //测试数据
-            for (int i = 0; i < 11; i++) {
+            for (int i = 0; i < 12; i++) {
                 switch (i) {
                     case AppComBean.COM_TYPE_NET:
                         dataList.add(new AppComBean(i, "网络框架", "参考类OkHttpManager + RetrofitManager", false));
@@ -70,6 +70,9 @@ public class TabComFragment extends BaseRecyclerFragment {
                         break;
                     case AppComBean.COM_TYPE_DOWNLOAD:
                         dataList.add(new AppComBean(i, "下载框架", "参考类DownloadHelper", true));
+                        break;
+                    case AppComBean.COM_TYPE_EXTEND_OPEN_FILE:
+                        dataList.add(new AppComBean(i, "扩展功能1", "参考类OpenFileProxyActivity(获取用系统分享和打开的文件)", false));
                         break;
                 }
             }
