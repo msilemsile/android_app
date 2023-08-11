@@ -17,15 +17,15 @@ import java.util.Random;
 import me.msile.app.androidapp.R;
 import me.msile.app.androidapp.common.camera.SimpleCameraActivity;
 import me.msile.app.androidapp.common.camera.SimpleCameraXActivity;
-import me.msile.app.androidapp.common.picker.FilePickerHelper;
 import me.msile.app.androidapp.common.permissions.PermissionHelper;
 import me.msile.app.androidapp.common.permissions.callback.PermissionCallback;
 import me.msile.app.androidapp.common.permissions.request.CameraPermissionRequest;
+import me.msile.app.androidapp.common.picker.FilePickerHelper;
+import me.msile.app.androidapp.common.picker.SimpleFilePickerDialog;
 import me.msile.app.androidapp.common.player.PlayerManager;
 import me.msile.app.androidapp.common.qrcode.QrCodeActivity;
 import me.msile.app.androidapp.common.ui.adapter.holder.CommonRecyclerViewHolder;
 import me.msile.app.androidapp.common.ui.dialog.AppAlertDialog;
-import me.msile.app.androidapp.common.picker.SimpleFilePickerDialog;
 import me.msile.app.androidapp.common.ui.toast.AppToast;
 import me.msile.app.androidapp.common.ui.widget.shapelayout.ShapeTextView;
 import me.msile.app.androidapp.common.web.WebManager;
@@ -183,6 +183,9 @@ public class AppComViewHolder extends CommonRecyclerViewHolder<AppComBean> {
                 } else {
                     SimpleCameraActivity.goToPage(mContext);
                 }
+                break;
+            case AppComBean.COM_TYPE_DOWNLOAD:
+                DownloadTestDialog.build().show(mContext);
                 break;
         }
     }

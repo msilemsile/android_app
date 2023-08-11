@@ -36,7 +36,7 @@ public class TabComFragment extends BaseRecyclerFragment {
         if (isFirstOnResume) {
             List<AppComBean> dataList = new ArrayList<>();
             //测试数据
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 11; i++) {
                 switch (i) {
                     case AppComBean.COM_TYPE_NET:
                         dataList.add(new AppComBean(i, "网络框架", "参考类OkHttpManager + RetrofitManager", false));
@@ -67,6 +67,9 @@ public class TabComFragment extends BaseRecyclerFragment {
                         break;
                     case AppComBean.COM_TYPE_CAMERA:
                         dataList.add(new AppComBean(i, "相机框架", "参考类CameraHelper+CameraXHelper", true));
+                        break;
+                    case AppComBean.COM_TYPE_DOWNLOAD:
+                        dataList.add(new AppComBean(i, "下载框架", "参考类DownloadHelper", true));
                         break;
                 }
             }

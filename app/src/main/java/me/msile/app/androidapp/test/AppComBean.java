@@ -22,6 +22,8 @@ public class AppComBean {
     public static final int COM_TYPE_ROUTER = 8;
     //相机
     public static final int COM_TYPE_CAMERA = 9;
+    //下载
+    public static final int COM_TYPE_DOWNLOAD = 10;
 
     private int comType;
     private String comName;
