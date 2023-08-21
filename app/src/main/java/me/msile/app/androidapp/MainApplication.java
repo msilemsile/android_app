@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import me.msile.app.androidapp.common.core.AppManager;
-import me.msile.app.androidapp.common.core.ApplicationHolder;
 import me.msile.app.androidapp.common.extend.OpenFileProxyHelper;
 import me.msile.app.androidapp.common.mmkv.MMKVInit;
 import me.msile.app.androidapp.common.provider.FileProviderHelper;
@@ -22,8 +21,6 @@ public class MainApplication extends Application {
         String currentProcessName = ProcessUtils.getCurrentProcessName();
         boolean isMainProcess = TextUtils.equals(currentProcessName, getPackageName());
         Log.d("MainApplication", "--onCreate-- currentProcess = " + currentProcessName + " | isMainProcess = " + isMainProcess);
-        ApplicationHolder.init(this);
-        FileProviderHelper.init(this);
         AppManager.INSTANCE.init(this);
         RxHelper.init();
         MMKVInit.init(this);
