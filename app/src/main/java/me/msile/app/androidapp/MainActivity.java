@@ -11,7 +11,7 @@ import java.util.List;
 
 import me.msile.app.androidapp.common.core.AppManager;
 import me.msile.app.androidapp.common.extend.OpenFileProxyHelper;
-import me.msile.app.androidapp.common.storage.CacheFileInfo;
+import me.msile.app.androidapp.common.storage.model.CacheFileInfo;
 import me.msile.app.androidapp.common.ui.activity.ImmerseFullScreenActivity;
 import me.msile.app.androidapp.common.ui.dialog.AppAlertDialog;
 import me.msile.app.androidapp.test.HomeTabInfo;
